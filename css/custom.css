@@ -384,6 +384,7 @@ header.main-header{
 	width: 100%;
 	border-bottom: 1px solid var(--divider-color);
 	z-index: 100;
+	background: linear-gradient(180deg, rgb(255 255 255 / 27%) 0%, rgba(255, 255, 255, 1) 50%, rgb(248 232 243 / 14%) 100%);
 }
 
 header.main-header .header-sticky{
@@ -441,10 +442,9 @@ header.main-header .header-sticky.active{
 	font-size: 16px;
 	font-weight: 600;
 	padding: 15px !important;
-	color: var(--primary-color);
+	color: #1A1D50;
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
-	text-shadow: 2px 2px 3px #00000057;
 }
 
 .main-menu ul li.submenu > a:after{
@@ -556,7 +556,7 @@ header.main-header .header-sticky.active{
 
 .header-social-links ul li i{
 	font-size: 20px;
-	color: #fff;
+	color: #1A1D50;
 	transition: all 0.4s ease-in-out;
 	text-shadow: 2px 2px 4px #00000073;
 }
@@ -7832,528 +7832,532 @@ body:has(.offcanvas){
     }
 }
 .apx-slider-wrapper {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .apx-slider-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        /* Slides */
-        .apx-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .apx-slide.apx-active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-        }
-
-        .apx-slide.apx-active .apx-slide-content > * {
-            animation: apxFadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .apx-slide.apx-active .apx-slide-subtitle {
-            animation-delay: 0.2s;
-        }
-
-        .apx-slide.apx-active .apx-slide-title {
-            animation-delay: 0.4s;
-        }
-
-        .apx-slide.apx-active .apx-slide-description {
-            animation-delay: 0.6s;
-        }
-
-        /* Background layer */
-        .apx-slide-background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.05s ease-out;
-        }
-
-        /* Parallax images */
-        .apx-parallax-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .apx-parallax-image {
-            position: absolute;
-            transition: transform 0.05s ease-out;
-            will-change: transform;
-        }
-
-        /* Navigation Header */
-        .apx-nav-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 35px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .apx-logo {
-            width: 45px;
-            height: 45px;
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: white;
-            font-weight: 300;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .apx-logo:hover {
-            transform: rotate(180deg);
-            border-color: white;
-        }
-
-        .apx-nav-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
-            letter-spacing: 0.5px;
-        }
-
-        .apx-nav-right {
-            color: white;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        .apx-nav-right:hover {
-            opacity: 0.7;
-        }
-
-        /* Slide Content */
-        .apx-slide-content {
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 50px;
-            z-index: 10;
-        }
-
-        .apx-slide-subtitle {
-            font-size: 11px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
-            opacity: 0;
-            transform: translateY(40px);
-            font-weight: 500;
-            text-shadow: 2px 2px 4px #00000073;
-        }
-
-        .apx-slide-title {
-            font-size: clamp(60px, 12vw, 90px);
-            font-weight: 700;
-            color: white;
-            line-height: 0.95;
-            margin-bottom: 0;
-            opacity: 0;
-            transform: translateY(40px);
-            text-shadow: 2px 2px 4px #00000073;
-        }
-
-        .apx-slide-title-line {
-            display: block;
-        }
-
-        /* Description Box */
-        .apx-slide-description {
-            position: absolute;
-            right: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 380px;
-            text-align: right;
-            opacity: 0;
-        }
-
-        .apx-slide-description p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px #00000073;
-        }
-
-        .apx-btn-more {
-            display: inline-block;
-            color: white;
-            text-decoration: none;
-            text-transform: capitalize;
-            letter-spacing: 1px;
-            font-size: 13px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-            padding-bottom: 3px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .apx-btn-more:hover {
-            opacity: 0.7;
-            transform: translateX(-5px);
-        }
-
-        /* Footer Navigation */
-        .apx-footer-nav {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 35px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .apx-slide-counter {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        .apx-social-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .apx-social-links a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 15px;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .apx-social-links a:hover {
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .apx-slider-controls {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .apx-control-btn {
-            width: 38px;
-            height: 38px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .apx-control-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-            transform: scale(1.05);
-        }
-
-        .apx-contact-link {
-            color: white;
-            text-transform: lowercase;
-            letter-spacing: 1px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-            text-decoration: none;
-        }
-
-        .apx-contact-link:hover {
-            opacity: 0.7;
-        }
-
-        /* Animations */
-        @keyframes apxFadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Slide-specific backgrounds */
-        #apxSlide1 .apx-slide-background {
-            background-image: url('../images/bg-slide-hero-1.jpg');
-        }
-
-        #apxSlide2 .apx-slide-background {
-            background-image: url('../images/bg-slide-hero-2.jpg');
-        }
-
-        #apxSlide3 .apx-slide-background {
-            background-image: url('../images/bg-slide-hero-1.jpg');
-        }
-
-        #apxSlide4 .apx-slide-background {
-            background-image: url('../images/bg-slide-hero-2.jpg');
-        }
-
-        /* Parallax image placeholders */
-        .apx-car-cloud {
-            width: 800px;
-            height: 400px;
-            left: 35%;
-            top: 30%;
-            background: url('../images/branding.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .apx-astronaut {
-            width: 400px;
-            height: 600px;
-            left: 45%;
-            top: 20%;
-            background: url('../images/branding.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .apx-pink-clouds {
-            width: 400px;
-		    height: 600px;
-		    left: 45%;
-		    bottom: 20%;
-		    background: url(../images/webdev.jpg);
-		    background-size: contain;
-		    background-position: bottom;
-		    background-repeat: no-repeat;
-        }
-
-        .apx-birds {
-            width: 600px;
-            height: 200px;
-            left: 20%;
-            top: 40%;
-            background: url('../images/branding.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .apx-ufos {
-            width: 600px;
-            height: 400px;
-            left: 25%;
-            top: 15%;
-            background: url('../images/social.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .apx-person-field {
-            width: 500px;
-            height: 400px;
-            left: 50%;
-            bottom: 5%;
-            transform: translateX(-50%);
-            background: url('../images/print.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .apx-ground {
-            width: 100%;
-            height: 40%;
-            left: 0;
-            bottom: 0;
-            background: url('../images/branding.jpg');
-            background-size: cover;
-            background-position: bottom;
-        }
-
-        /* Content Section After Slides */
-        .apx-content-section {
-            background: #f8f9fa;
-            padding: 100px 50px;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .apx-content-section h2 {
-            font-size: 60px;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .apx-content-section h2 .apx-gradient-text {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-style: italic;
-        }
-
-        .apx-content-section h2 .apx-dark-text {
-            color: #1a1a2e;
-        }
-
-        .apx-content-section .apx-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 80px;
-        }
-
-        .apx-features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .apx-feature-card {
-            text-align: center;
-            padding: 40px 30px;
-        }
-
-        .apx-feature-card i {
-            font-size: 48px;
-            color: #f5576c;
-            margin-bottom: 25px;
-        }
-
-        .apx-feature-card h3 {
-            font-size: 22px;
-            color: #1a1a2e;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .apx-feature-card p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .apx-slide-description {
-                right: 40px;
-                max-width: 320px;
-            }
-
-            .apx-nav-header,
-            .apx-footer-nav {
-                padding: 30px 40px;
-            }
-
-            .apx-slide-content {
-                padding: 0 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .apx-nav-header,
-            .apx-footer-nav {
-                padding: 20px 30px;
-            }
-
-            .apx-slide-content {
-                padding: 0 30px;
-            }
-
-            .apx-slide-description {
-                position: static;
-                transform: none;
-                margin-top: 50px;
-                text-align: left;
-                max-width: 100%;
-                opacity: 0;
-            }
-
-            .apx-slide-description p {
-                text-align: left;
-            }
-
-            .apx-nav-center {
-                display: none;
-            }
-
-            .apx-social-links {
-                gap: 15px;
-            }
-
-            .apx-slider-controls {
-                gap: 8px;
-            }
-
-            .apx-parallax-image {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .apx-slide-title {
-                font-size: 48px;
-            }
-
-            .apx-nav-header,
-            .apx-footer-nav {
-                padding: 15px 20px;
-            }
-
-            .apx-slide-content {
-                padding: 0 20px;
-            }
-
-            .apx-content-section {
-                padding: 60px 20px;
-            }
-
-            .apx-content-section h2 {
-                font-size: 36px;
-            }
-
-            .apx-features-grid {
-                gap: 40px;
-            }
-        }
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.apx-slider-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Smooth Slides Transitions */
+.apx-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    overflow: hidden;
+}
+
+.apx-slide.apx-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* When slide becomes active, animate background with smooth parallax flow */
+.apx-slide.apx-active .apx-slide-background {
+    animation: parallaxFlowIn 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* When slide exits, animate background out smoothly */
+.apx-slide.apx-exiting .apx-slide-background {
+    animation: parallaxFlowOut 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.apx-slide.apx-active .apx-slide-content > * {
+    animation: apxFadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.apx-slide.apx-active .apx-slide-subtitle {
+    animation-delay: 0.5s;
+}
+
+.apx-slide.apx-active .apx-slide-title {
+    animation-delay: 0.7s;
+}
+
+.apx-slide.apx-active .apx-slide-description {
+    animation-delay: 0.9s;
+}
+
+/* Background layer - Ultra smooth multi-layer parallax effect */
+.apx-slide-background {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    left: -10%;
+    top: -10%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(10%) scale(1.15);
+    will-change: transform;
+}
+
+/* Add overlay layers for depth effect */
+.apx-slide-background::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Ultra smooth parallax flow animation - slower and more fluid */
+@keyframes parallaxFlowIn {
+    0% {
+        transform: translateY(10%) scale(1.15);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(5%) scale(1.08);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes parallaxFlowOut {
+    0% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-5%) scale(0.95);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10%) scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Parallax images */
+.apx-parallax-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.apx-parallax-image {
+    position: absolute;
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(15%) scale(0.9);
+}
+
+/* Animate parallax images when slide is active - ultra smooth */
+.apx-slide.apx-active .apx-parallax-image {
+    animation: parallaxImageFlow 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.apx-slide.apx-active .apx-parallax-image:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.apx-slide.apx-active .apx-parallax-image:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.apx-slide.apx-active .apx-parallax-image:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* Ultra smooth parallax image flow animation */
+@keyframes parallaxImageFlow {
+    0% {
+        opacity: 0;
+        transform: translateY(15%) scale(0.9);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(8%) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%) scale(1);
+    }
+}
+
+/* Slide Content */
+.apx-slide-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+    z-index: 10;
+}
+
+.apx-slide-subtitle {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(40px);
+    font-weight: 500;
+    text-shadow: 2px 2px 4px #00000073;
+}
+
+.apx-slide-title {
+    font-size: clamp(60px, 12vw, 90px);
+    font-weight: 700;
+    color: white;
+    line-height: 0.95;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(40px);
+    text-shadow: 2px 2px 4px #00000073;
+}
+
+.apx-slide-title-line {
+    display: block;
+}
+
+/* Description Box */
+.apx-slide-description {
+    max-width: 380px;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.apx-slide-description p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px #00000073;
+}
+
+.apx-btn-more {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    padding-bottom: 3px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.apx-btn-more:hover {
+    opacity: 0.7;
+    transform: translateX(5px);
+}
+
+/* Footer Navigation */
+.apx-footer-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.apx-slide-counter {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.apx-social-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.apx-social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.apx-social-links a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.apx-slider-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.apx-control-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.apx-control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.apx-contact-link {
+    color: white;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    text-decoration: none;
+}
+
+.apx-contact-link:hover {
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes apxFadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-specific backgrounds - Beautiful gradients with images */
+#apxSlide1 .apx-slide-background {
+    background: linear-gradient(135deg, rgb(0 0 0 / 23%) 0%, rgb(63 2 10 / 0%) 100%), url(../images/840820_1234.jpg) center / cover;
+}
+
+#apxSlide2 .apx-slide-background {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, rgba(255, 255, 255, 1) 50%, rgb(113 0 0 / 5%) 100%), url(../images/3824501_106.jpg) center / cover;
+}
+
+#apxSlide3 .apx-slide-background {
+    background: linear-gradient(135deg, rgb(0 0 0 / 23%) 0%, rgb(63 2 10 / 0%) 100%), url(../images/4328338_1136.jpg) center / cover;
+}
+
+#apxSlide4 .apx-slide-background {
+    background: linear-gradient(180deg, rgb(255 255 255 / 23%) 0%, rgba(255, 255, 255, 1) 50%, rgb(113 0 0 / 12%) 100%), url(../images/6938855_3449860.jpg) center / cover;
+}
+
+#apxSlide5 .apx-slide-background {
+    background: linear-gradient(135deg, rgb(0 0 0 / 23%) 0%, rgb(63 2 10 / 0%) 100%), url(../images/19335179_6090732.jpg) center / cover;
+}
+
+/* Beautiful Parallax Images - Use your own images */
+.apx-car-cloud {
+    width: 600px;
+    height: 400px;
+    right: 5%;
+    top: 25%;
+    background: url('../images/branding.jpg') center/contain no-repeat;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+.apx-pink-clouds {
+    width: 500px;
+    height: 600px;
+    right: 5%;
+    bottom: 12%;
+    background: url('../images/ecommerce.jpg') center/contain no-repeat;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+.apx-pink-clouds-ui {
+    width: 500px;
+    height: 600px;
+    right: 5%;
+    bottom: 12%;
+    background: url('../images/webdev.jpg') center/contain no-repeat;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+.apx-ufos {
+    width: 600px;
+    height: 520px;
+    right: 10%;
+    top: 25%;
+    background: url('../images/social.jpg') center/contain no-repeat;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+.apx-person-field {
+    width: 600px;
+    height: 550px;
+    right: 8%;
+    bottom: 15%;
+    background: url('../images/print.jpg') center/contain no-repeat;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+/* Content Section After Slides */
+.apx-content-section {
+    background: #f8f9fa;
+    padding: 100px 50px;
+    min-height: 100vh;
+    position: relative;
+}
+
+.apx-content-section h2 {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.apx-content-section h2 .apx-gradient-text {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+}
+
+.apx-content-section h2 .apx-dark-text {
+    color: #1a1a2e;
+}
+
+.apx-content-section .apx-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 80px;
+}
+
+.apx-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.apx-feature-card {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.apx-feature-card i {
+    font-size: 48px;
+    color: #f5576c;
+    margin-bottom: 25px;
+}
+
+.apx-feature-card h3 {
+    font-size: 22px;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.apx-feature-card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+}
+/* Smooth background zoom effect when slide is active */
+.apx-slide.apx-active .apx-slide-background {
+    animation: backgroundZoom 20s ease-in-out infinite;
+}
+@keyframes backgroundZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .apx-slide-description {
+        max-width: 320px;
+    }
+
+    .apx-footer-nav {
+        padding: 30px 40px;
+    }
+
+    .apx-slide-content {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .apx-footer-nav {
+        padding: 20px 30px;
+    }
+
+    .apx-slide-content {
+        padding: 0 30px;
+    }
+
+    .apx-slide-description {
+        margin-top: 50px;
+        max-width: 100%;
+    }
+
+    .apx-social-links {
+        gap: 15px;
+    }
+
+    .apx-slider-controls {
+        gap: 8px;
+    }
+
+    .apx-parallax-image {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .apx-slide-title {
+        font-size: 48px;
+    }
+
+    .apx-footer-nav {
+        padding: 15px 20px;
+    }
+
+    .apx-slide-content {
+        padding: 0 20px;
+    }
+
+    .apx-content-section {
+        padding: 60px 20px;
+    }
+
+    .apx-content-section h2 {
+        font-size: 36px;
+    }
+
+    .apx-features-grid {
+        gap: 40px;
+    }
+}
