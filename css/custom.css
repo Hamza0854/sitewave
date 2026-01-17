@@ -382,9 +382,9 @@ header.main-header{
 	position: absolute;
 	top: 0;
 	width: 100%;
-	border-bottom: 1px solid var(--divider-color);
+	/*border-bottom: 1px solid var(--divider-color);*/
 	z-index: 100;
-	background: linear-gradient(180deg, rgb(255 255 255 / 27%) 0%, rgba(255, 255, 255, 1) 50%, rgb(248 232 243 / 14%) 100%);
+	/*background: linear-gradient(180deg, rgb(255 255 255 / 27%) 0%, rgba(255, 255, 255, 1) 50%, rgb(248 232 243 / 14%) 100%);*/
 }
 
 header.main-header .header-sticky{
@@ -442,7 +442,7 @@ header.main-header .header-sticky.active{
 	font-size: 16px;
 	font-weight: 600;
 	padding: 15px !important;
-	color: #1A1D50;
+	color: #fff;
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
 }
@@ -556,7 +556,7 @@ header.main-header .header-sticky.active{
 
 .header-social-links ul li i{
 	font-size: 20px;
-	color: #1A1D50;
+	color: #fff;
 	transition: all 0.4s ease-in-out;
 	text-shadow: 2px 2px 4px #00000073;
 }
