@@ -1197,7 +1197,7 @@ body:has(.offcanvas){
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 100px;
+	margin-bottom: 40px;
 }
 
 .service-item-header .icon-box img{
@@ -1217,7 +1217,9 @@ body:has(.offcanvas){
 .service-item-body{
 	position: relative;
 }
-
+.service-item-body h6 {
+	margin-top: 18px;
+}
 .service-item-body h3{
 	font-size: 22px;
 	text-transform: capitalize;
@@ -1226,6 +1228,9 @@ body:has(.offcanvas){
 
 .service-item-body p{
 	margin-bottom: 0;
+}
+.service-item-body p a {
+	color: #69bf62;
 }
 
 .service-footer{
@@ -5738,7 +5743,7 @@ body:has(.offcanvas){
 	}
 
 	.service-item-header{
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 	}
 
 	.service-item-header .icon-box img{
