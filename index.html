@@ -1399,7 +1399,7 @@
     <!-- Magnific js file -->
     <script src="js/jquery.magnific-popup.min.js"></script>
     <!-- SmoothScroll -->
-    <script src="js/SmoothScroll.js"></script>
+    <!-- <script src="js/SmoothScroll.js"></script> -->
     <!-- Parallax js -->
     <script src="js/parallaxie.js"></script>
     <!-- MagicCursor js file -->
@@ -1416,6 +1416,64 @@
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
 	<script src="../../demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
-    
+    <script>
+      // ── Lenis Luxury Smooth Scroll ──────────────────────────────
+      (function () {
+
+        // 1. Load Lenis from CDN
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/lenis@1.1.1/dist/lenis.min.js';
+        script.onload = function () {
+
+          // 2. Init Lenis
+          var lenis = new Lenis({
+            duration: 1.6,
+            easing: function (t) {
+              return Math.min(1, 1.001 - Math.pow(2, -10 * t));
+            },
+            smoothWheel: true,
+            smoothTouch: false,   // keep touch native (mobile)
+            wheelMultiplier: 0.9, // lower = slower/smoother
+            infinite: false,
+          });
+
+          // 3. Hook into your EXISTING GSAP ticker (already loaded on your page)
+          gsap.ticker.add(function (time) {
+            lenis.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0); // removes lag spikes
+
+          // 4. Keep ScrollTrigger in sync
+          lenis.on('scroll', function () {
+            ScrollTrigger.update();
+          });
+
+          // 5. Fix Bootstrap anchor links (navbar clicks)
+          document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+              var target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                e.preventDefault();
+                lenis.scrollTo(target, {
+                  offset: -80,      // accounts for your sticky header
+                  duration: 1.8,
+                  easing: function (t) {
+                    return t < 0.5
+                      ? 4 * t * t * t
+                      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                  },
+                });
+              }
+            });
+          });
+
+          // 6. Expose globally if needed elsewhere
+          window.lenis = lenis;
+        };
+
+        document.head.appendChild(script);
+
+      })();
+    </script>
 </body>
 </html>
